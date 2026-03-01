@@ -152,21 +152,21 @@ KVM acceleration can be used
 
 ---
 
-# 3. Clone Repository
+# 3. Persiapan Direktori Kerja
+
+```bash
+mkdir -p /root/debian-kvm
+cd /root/debian-kvm
+```
+
+---
+
+# 4. Clone Repository
 
 Clone semua isi repo ke working directory saat ini:
 
 ```bash
 git clone https://github.com/ica4me/kvm-docker-container.git .
-```
-
----
-
-# 4. Persiapan Direktori Kerja
-
-```bash
-mkdir -p /root/debian-kvm
-cd /root/debian-kvm
 ```
 
 ---
