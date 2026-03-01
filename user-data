@@ -1,0 +1,13 @@
+#cloud-config
+chpasswd:
+  list: |
+    root:xccvme
+    debian:xccvme
+  expire: False
+ssh_pwauth: True
+
+runcmd:
+  # Membuat file konfigurasi khusus agar tidak ditimpa oleh default Debian 12
+  - echo "PermitRootLogin yes" > /etc/ssh/sshd_config.d/99-allow-root.conf
+  - echo "PasswordAuthentication yes" >> /etc/ssh/sshd_config.d/99-allow-root.conf
+  - systemctl restart ssh

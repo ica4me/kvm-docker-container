@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  debian-vm:
+    build: .
+    container_name: debian-vm
+    privileged: true
+    devices:
+      - /dev/kvm:/dev/kvm
+      - /dev/net/tun:/dev/net/tun
+    cap_add:
+      - NET_ADMIN
+    networks:
+      vm_network:
+        ipv4_address: 172.18.0.2
+    restart: unless-stopped
+
+networks:
+  vm_network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.18.0.0/16
