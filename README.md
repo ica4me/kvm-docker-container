@@ -228,7 +228,18 @@ exec qemu-system-x86_64 \
 
 ---
 
-# 9. Build dan Jalankan VM Container
+# 9. Resize disk Image(Default 10Gb)
+
+Skip jika tetap ingin 10Gb
+RUN qemu-img resize debian12.qcow2 10G
+
+```bash
+nano Dockerfile
+```
+
+---
+
+# 10. Build dan Jalankan VM Container
 
 ```bash
 docker compose up -d --build
@@ -242,7 +253,7 @@ docker logs -f debian-vm
 
 ---
 
-# 10. Setup NAT dan Forwarding Network
+# 11. Setup NAT dan Forwarding Network
 
 ```bash
 MAIN_IFACE=$(ip route show default | awk '/default/ {print $5}' | head -1)
@@ -257,7 +268,7 @@ netfilter-persistent save
 
 ---
 
-# 11. Akses Console VM
+# 12. Akses Console VM
 
 Masuk console:
 
@@ -274,7 +285,7 @@ Ctrl + Q
 
 ---
 
-# 12. Rebuild Container Jika Perlu
+# 13. Rebuild Container Jika Perlu
 
 ```bash
 docker rm -f debian-vm
@@ -291,7 +302,7 @@ docker compose up -d --build --force-recreate
 
 ---
 
-# 13. Akses SSH ke VM
+# 14. Akses SSH ke VM
 
 Dari luar host:
 
@@ -307,7 +318,7 @@ ssh root@172.18.0.2
 
 ---
 
-# 14. Akses SSH ke HOST-VM
+# 15. Akses SSH ke HOST-VM
 
 Hanya lewat port 2026:
 
