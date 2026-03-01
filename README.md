@@ -210,6 +210,10 @@ free -m
 
 Sesuaikan resource VM.
 
+```bash
+nano start.sh
+```
+
 Rekomendasi:
 
 RAM VM = total RAM host dikurangi 512MB–1GB  
@@ -299,6 +303,16 @@ Dari host langsung:
 
 ```bash
 ssh root@172.18.0.2
+```
+
+---
+
+# 14. Akses SSH ke HOST-VM
+
+Hanya lewat port 2026:
+
+```bash
+ssh root@$PUBLIC_IP -p 2026
 ```
 
 ---
